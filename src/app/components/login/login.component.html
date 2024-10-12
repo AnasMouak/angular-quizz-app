@@ -1,0 +1,15 @@
+<div>
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="username">Username:</label>
+      <input id="username" [(ngModel)]="user.username" name="username" required />
+  
+      <label for="password">Password:</label>
+      <input id="password" [(ngModel)]="user.password" name="password" type="password" required />
+  
+      <button type="submit">Login</button>
+    </form>
+  
+    <!-- Display the message -->
+    <p *ngIf="message">{{ message }}</p>
+</div>

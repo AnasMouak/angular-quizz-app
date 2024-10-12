@@ -1,0 +1,8 @@
+<h1>Welcome, {{ username }}!</h1>
+
+<!-- Quiz list display -->
+<ul>
+  <li *ngFor="let quiz of quizzes">
+    {{ quiz.title }} - {{ quiz.category }} - {{ quiz.difficulty }}
+  </li>
+</ul>
