@@ -1,0 +1,9 @@
+.quiz-item a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff; 
+  }
+  
+  .quiz-item a:hover {
+    color: #0056b3; 
+  }

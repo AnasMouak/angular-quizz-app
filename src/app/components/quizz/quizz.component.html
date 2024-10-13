@@ -1,8 +1,10 @@
 <h1>Welcome, {{ username }}!</h1>
 
 <!-- Quiz list display -->
+<h3>Select a quiz:</h3>
+
 <ul>
-  <li *ngFor="let quiz of quizzes">
-    {{ quiz.title }} - {{ quiz.category }} - {{ quiz.difficulty }}
+  <li *ngFor="let quiz of quizzes" class="quiz-item">
+    <a (click)="selectQuiz(quiz.id)">{{quiz.id}} - {{ quiz.title }} - {{ quiz.category }} - {{ quiz.difficulty }}</a>
   </li>
 </ul>

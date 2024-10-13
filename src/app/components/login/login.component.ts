@@ -41,7 +41,7 @@ export class LoginComponent {
       error: (err) => {
         // On failed login
         this.message = 'Login failed. Please try again.';
-        console.error(err); // You can log more details here for debugging
+        console.error(err);
       }
     });
   }

@@ -1,0 +1,12 @@
+<h3>Questions for Quiz {{ quizzId}}:</h3>
+
+<ul *ngFor="let question of questions">
+  <li>
+    <h4>{{ question.questionText }}</h4>
+    <ul>
+      <li *ngFor="let answer of question.answers">
+        {{ answer.answerText }}
+      </li>
+    </ul>
+  </li>
+</ul>
