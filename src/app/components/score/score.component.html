@@ -1,0 +1,10 @@
+<h3>Your Score</h3>
+<p>Your score is {{ score }} out of {{ totalQuestions }}.</p>
+
+<!-- Optional: Add feedback based on score -->
+<div *ngIf="score / totalQuestions >= 0.7; else lowScore">
+  <p>Great job! You scored above 70%!</p>
+</div>
+<ng-template #lowScore>
+  <p>Keep trying! You'll improve with practice.</p>
+</ng-template>

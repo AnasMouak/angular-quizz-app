@@ -1,14 +1,22 @@
 <h3>Questions for Quiz {{ quizzId}}:</h3>
-
-<ul *ngFor="let question of questions">
-  <li>
-    <h4>{{ question.questionText }}</h4>
-    <ul>
-      <li *ngFor="let answer of question.answers">
-        <!-- Correct input tag -->
-        <input type="radio" name="question{{ question.id }}" [(ngModel)]="selectedAnswers[question.id]" [value]="answer.answerText" />
-        {{ answer.answerText }}
+<form (ngSubmit)="submitQuiz()">
+    <ul *ngFor="let question of questions; let i = index">
+      <li>
+        <h4>{{ question.questionText }}</h4>
+        <ul>
+          <li *ngFor="let answer of question.answers">
+            <input 
+              type="radio" 
+              name="answer-{{ i }}" 
+              [(ngModel)]="selectedAnswers[i]" 
+              [value]="answer.id" 
+              required>
+            {{ answer.answerText }}
+          </li>
+        </ul>
       </li>
     </ul>
-  </li>
-</ul>
+  
+    <!-- Submit button -->
+    <button type="submit">Submit Quiz</button>
+  </form>
