@@ -7,8 +7,8 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-quiz',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.css']
+  templateUrl: './quizz.component.html',
+  styleUrls: ['./quizz.component.css']
 })
 export class QuizzComponent implements OnInit {
 
