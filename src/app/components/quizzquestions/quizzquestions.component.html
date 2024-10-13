@@ -5,6 +5,8 @@
     <h4>{{ question.questionText }}</h4>
     <ul>
       <li *ngFor="let answer of question.answers">
+        <!-- Correct input tag -->
+        <input type="radio" name="question{{ question.id }}" [(ngModel)]="selectedAnswers[question.id]" [value]="answer.answerText" />
         {{ answer.answerText }}
       </li>
     </ul>
