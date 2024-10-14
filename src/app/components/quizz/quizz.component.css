@@ -2,7 +2,10 @@
 
 .header {
   background-color: #4CAF50; 
-  padding: 20px;          
+  margin-top: -10px;
+  padding: 15px 20px;
+  margin-right: -10px;
+  margin-left: -10px;
   border-radius: 0 0 10px 10px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
@@ -131,5 +134,6 @@
     bottom: 0;
     background-color: #4CAF50;
     border-radius: 0 0 10px 10px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: -10px; 
   }
