@@ -1,10 +1,27 @@
-<h3>Your Score</h3>
-<p>Your score is {{ score }} out of {{ totalQuestions }}.</p>
+<header class="header">
+  <nav class="nav">
+    <h1 class="logo">QuizzApp</h1>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- Optional: Add feedback based on score -->
-<div *ngIf="score / totalQuestions >= 0.7; else lowScore">
-  <p>Great job! You scored above 70%!</p>
+<div class="score-container">
+  <h3 class="score-title">Your Score</h3>
+  <p class="score-text">Your score is <strong>{{ score }}</strong> out of <strong>{{ totalQuestions }}</strong>.</p>
+
+  <!-- Optional: Add feedback based on score -->
+  <div *ngIf="score / totalQuestions >= 0.7; else lowScore">
+    <p class="feedback positive">Great job! You scored above 70%!</p>
+  </div>
+  <ng-template #lowScore>
+    <p class="feedback negative">Keep trying! You'll improve with practice.</p>
+  </ng-template>
+  <a href="/quizzes" class="btn">Take another quiz</a>
 </div>
-<ng-template #lowScore>
-  <p>Keep trying! You'll improve with practice.</p>
-</ng-template>
+
+<footer>
+  <p>&copy; QuizzApp. All rights reserved.</p>
+</footer>
