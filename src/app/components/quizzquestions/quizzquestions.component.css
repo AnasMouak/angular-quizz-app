@@ -1,0 +1,112 @@
+.header {
+    background-color: #4CAF50; 
+    margin-top: -10px;
+    padding: 15px 20px;
+    margin-right: -10px;
+    margin-left: -10px;
+    border-radius: 0 0 10px 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .nav {
+    display: flex;          
+    justify-content: space-between; 
+    align-items: center;     
+  }
+  
+  .logo {
+    color: white;            
+    font-size: 1.5em;        
+    margin: 0;               
+  }
+  
+  .nav-links {
+    list-style-type: none;    
+    margin: 0;                
+    padding: 0;               
+    display: flex;           
+  }
+  
+  .nav-links li {
+    margin-left: 20px;       
+  }
+  
+  .nav-links a {
+    text-decoration: none;     
+    color: white;             
+    font-weight: bold;      
+    transition: color 0.3s;   
+  }
+  
+  .nav-links a:hover {
+    color: #FFEB3B;           
+  }
+
+  .quiz-title {
+    font-size: 24px;
+    color: #333; 
+    margin-bottom: 20px; 
+}
+
+.quiz-form {
+    background-color: #f9f9f9; 
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-list {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.question-item {
+    margin-bottom: 15px; 
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.question-text {
+    font-weight: bold;
+    color: #333; 
+}
+
+.answer-list {
+    list-style-type: none; 
+    padding-left: 20px; 
+}
+
+.answer-item {
+    margin-bottom: 8px; 
+}
+
+input[type="radio"] {
+    margin-right: 10px; 
+}
+
+.submit-button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #4CAF50;
+    border-radius: 0 0 10px 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: -10px; 
+  }
