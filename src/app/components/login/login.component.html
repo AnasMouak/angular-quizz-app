@@ -1,15 +1,32 @@
-<div>
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit()">
+<header>
+  <h1>QuizzApp</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/register">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-group">
       <label for="username">Username:</label>
-      <input id="username" [(ngModel)]="user.username" name="username" required />
-  
+      <input id="username" [(ngModel)]="user.username" name="username" required placeholder="Enter your username" />
+    </div>
+
+    <div class="form-group">
       <label for="password">Password:</label>
-      <input id="password" [(ngModel)]="user.password" name="password" type="password" required />
-  
-      <button type="submit">Login</button>
-    </form>
-  
-    <!-- Display the message -->
-    <p *ngIf="message">{{ message }}</p>
+      <input id="password" [(ngModel)]="user.password" name="password" type="password" required placeholder="Enter your password" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+  <p *ngIf="message" class="error-message">{{ message }}</p>
 </div>
+
+<footer>
+  <p>&copy; QuizzApp. All rights reserved.</p>
+</footer>

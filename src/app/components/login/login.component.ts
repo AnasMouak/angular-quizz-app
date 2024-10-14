@@ -26,6 +26,11 @@ export class LoginComponent {
   ) {}
 
   onSubmit(): void {
+
+    if (!this.user.username || !this.user.password) {
+      this.message = 'Username and password are required.';
+      return;  // Prevent form submission if fields are empty
+    }
     this.authService.login(this.user).subscribe({
       next: (response: any) => {
         // Extract username from the response

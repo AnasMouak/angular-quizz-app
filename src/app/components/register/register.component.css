@@ -13,7 +13,7 @@ header {
   }
   
   header nav {
-    margin-left: auto; /* Moves the nav (Home and Login) to the right */
+    margin-left: auto;
   }
   
   header nav ul {
