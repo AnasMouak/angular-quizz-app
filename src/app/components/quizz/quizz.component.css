@@ -1,9 +1,135 @@
+/* Header Styles */
+
+.header {
+  background-color: #4CAF50; 
+  padding: 20px;          
+  border-radius: 0 0 10px 10px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;          
+  justify-content: space-between; 
+  align-items: center;     
+}
+
+/* Logo styles */
+.logo {
+  color: white;            
+  font-size: 1.5em;        
+  margin: 0;               
+}
+
+/* Navigation link styles */
+.nav-links {
+  list-style-type: none;    
+  margin: 0;                
+  padding: 0;               
+  display: flex;           
+}
+
+.nav-links li {
+  margin-left: 20px;       
+}
+
+.nav-links a {
+  text-decoration: none;     
+  color: white;             
+  font-weight: bold;      
+  transition: color 0.3s;   
+}
+
+.nav-links a:hover {
+  color: #FFEB3B;           
+}
+
 .quiz-item a {
     cursor: pointer;
     text-decoration: none;
     color: #007bff; 
+}
+  
+.quiz-item a:hover {
+  color: #0056b3; 
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+  
+  /* Welcome message */
+  .welcome-message {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
   }
   
-  .quiz-item a:hover {
-    color: #0056b3; 
+  /* Quiz selection title */
+  .select-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  /* Quiz list */
+  .quiz-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .quiz-item {
+    margin: 10px 0;
+  }
+  
+  .quiz-link {
+    display: block;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Quiz link hover effect */
+  .quiz-link:hover {
+    background-color: #e9ecef;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Quiz details (id, title, category, difficulty) */
+  .quiz-id {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .quiz-title {
+    font-size: 1.2em;
+    margin-right: 20px;
+  }
+  
+  .quiz-category {
+    font-style: italic;
+    margin-right: 10px;
+  }
+  
+  .quiz-difficulty {
+    color: #FF5722;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #4CAF50;
+    border-radius: 0 0 10px 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
   }

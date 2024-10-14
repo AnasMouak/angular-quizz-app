@@ -1,10 +1,33 @@
-<h1>Welcome, {{ username }}!</h1>
+<header class="header">
+  <nav class="nav">
+    <h1 class="logo">QuizzApp</h1>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!-- Quiz list display -->
-<h3>Select a quiz:</h3>
+<div class="quiz-container">
+  <h1 class="welcome-message">Welcome, {{ username }}!</h1>
 
-<ul>
-  <li *ngFor="let quiz of quizzes" class="quiz-item">
-    <a (click)="selectQuiz(quiz.id)">{{quiz.id}} - {{ quiz.title }} - {{ quiz.category }} - {{ quiz.difficulty }}</a>
-  </li>
-</ul>
+  <!-- Quiz list display -->
+  <div class="quiz-selection">
+    <h3 class="select-title">Select a Quiz</h3>
+
+    <ul class="quiz-list">
+      <li *ngFor="let quiz of quizzes" class="quiz-item">
+        <a (click)="selectQuiz(quiz.id)" class="quiz-link">
+          <span class="quiz-id">#{{ quiz.id }}</span>
+          <span class="quiz-title">{{ quiz.title }}</span>
+          <span class="quiz-category">{{ quiz.category }}</span>
+          <span class="quiz-difficulty">{{ quiz.difficulty }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; QuizzApp. All rights reserved.</p>
+</footer>
