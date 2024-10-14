@@ -1,32 +1,51 @@
-<h2>Register</h2>
+<header>
+  <h1>QuizzApp</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-<form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-  <div>
+<h2 class="form-title">Register</h2>
+
+<form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="register-form">
+  <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" id="username" required [(ngModel)]="user.username" name="username" />
+    <input type="text" id="username" class="form-control" required [(ngModel)]="user.username" name="username" placeholder="Enter your username" />
+    <div *ngIf="registerForm.submitted && !user.username" class="error-message">Username is required</div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" id="email" required [(ngModel)]="user.email" name="email" />
+    <input type="email" id="email" class="form-control" required [(ngModel)]="user.email" name="email" placeholder="Enter your email" />
+    <div *ngIf="registerForm.submitted && !user.email" class="error-message">Valid email is required</div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="firstName">First Name</label>
-    <input type="text" id="firstName" required [(ngModel)]="user.firstName" name="firstName" />
+    <input type="text" id="firstName" class="form-control" required [(ngModel)]="user.firstName" name="firstName" placeholder="Enter your first name" />
+    <div *ngIf="registerForm.submitted && !user.firstName" class="error-message">First name is required</div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="lastName">Last Name</label>
-    <input type="text" id="lastName" required [(ngModel)]="user.lastName" name="lastName" />
+    <input type="text" id="lastName" class="form-control" required [(ngModel)]="user.lastName" name="lastName" placeholder="Enter your last name" />
+    <div *ngIf="registerForm.submitted && !user.lastName" class="error-message">Last name is required</div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" id="password" required [(ngModel)]="user.password" name="password" />
+    <input type="password" id="password" class="form-control" required [(ngModel)]="user.password" name="password" placeholder="Enter your password" />
+    <div *ngIf="registerForm.submitted && !user.password" class="error-message">Password is required</div>
   </div>
 
-  <button type="submit">Register</button>
+  <button type="submit" class="btn btn-primary">Register</button>
 </form>
 
-<div *ngIf="message">{{ message }}</div>
+<div *ngIf="message" class="form-message">{{ message }}</div>
+
+<footer>
+  <p>&copy; QuizzApp. All rights reserved.</p>
+</footer>

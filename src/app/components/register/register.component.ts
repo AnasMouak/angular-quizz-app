@@ -25,6 +25,10 @@ export class RegisterComponent {
   constructor(private readonly authService: AuthService, private readonly router: Router) {}
 
   onSubmit() {
+    if (!this.isFormValid()) {
+      this.message = 'Please fill out all fields correctly.';
+      return;  // Prevent submission if form is invalid
+    }
     this.authService.register(this.user).subscribe(
       response => {
         this.message = 'Registration successful!';
@@ -34,5 +38,15 @@ export class RegisterComponent {
         this.message = 'Registration failed. Please try again.';
       }
     );
+  }
+
+  isFormValid(): boolean {
+    return (
+      this.user.username.trim() !== '' &&
+      this.user.email.trim() !== '' &&
+      this.user.firstName.trim() !== '' &&
+      this.user.lastName.trim() !== '' &&
+      this.user.password.trim() !== '' 
+    );  
   }
 }
