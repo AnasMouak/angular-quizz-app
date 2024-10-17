@@ -3,29 +3,31 @@
     <h1 class="logo">QuizzApp</h1>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
-      <li><a href="/login">Login</a></li>
+      <li><a href="/quizzes">Quizzes</a></li>
+      <li>
+        <button (click)="logout()" class="logout-button">Logout</button>
+      </li>
     </ul>
   </nav>
 </header>
 
-<div class="quiz-container">
-  <h1 class="welcome-message">Welcome, {{ username }}!</h1>
+<div *ngIf="quizzes.length > 0; else noQuizzes">
+  <h2>Available Quizzes</h2>
+  <ul>
+    <li *ngFor="let quiz of quizzes">
+      <h3>{{ quiz.title }}</h3>
+      <p>{{ quiz.description }}</p>
+    </li>
+  </ul>
+</div>
 
-  <!-- Quiz list display -->
-  <div class="quiz-selection">
-    <h3 class="select-title">Select a Quiz</h3>
+<ng-template #noQuizzes>
+  <p>No quizzes available at the moment.</p>
+</ng-template>
 
-    <ul class="quiz-list">
-      <li *ngFor="let quiz of quizzes" class="quiz-item">
-        <a (click)="selectQuiz(quiz.id)" class="quiz-link">
-          <span class="quiz-id">#{{ quiz.id }}</span>
-          <span class="quiz-title">{{ quiz.title }}</span>
-          <span class="quiz-category">{{ quiz.category }}</span>
-          <span class="quiz-difficulty">{{ quiz.difficulty }}</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+<!-- Error message -->
+<div *ngIf="error">
+  <p class="error">{{ error }}</p>
 </div>
 
 <footer>

@@ -13,18 +13,18 @@
   <form (ngSubmit)="onSubmit()" class="login-form">
     <div class="form-group">
       <label for="username">Username:</label>
-      <input id="username" [(ngModel)]="user.username" name="username" required placeholder="Enter your username" />
+      <input id="username" [(ngModel)]="username" name="username" required placeholder="Enter your username" />
     </div>
 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input id="password" [(ngModel)]="user.password" name="password" type="password" required placeholder="Enter your password" />
+      <input id="password" [(ngModel)]="password" name="password" type="password" required placeholder="Enter your password" />
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 
-  <p *ngIf="message" class="error-message">{{ message }}</p>
+  <p *ngIf="error" class="error-message">{{ error }}</p>
 </div>
 
 <footer>

@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class QuizzComponent implements OnInit {
 
   quizzes: any[] = [];
-  username: string | undefined;  // To store the username
+  error: string | null = null;
 
   constructor(
     private readonly quizzService: QuizzService,
@@ -23,24 +23,29 @@ export class QuizzComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Fetch the quizzes
+    this.loadQuizzes();
+  }
+
+  loadQuizzes(): void {
     this.quizzService.getQuizzes().subscribe({
-      next: (data: any[]) => {
-        this.quizzes = data;
+      next: (data) => {
+        this.quizzes = data; // Assign fetched quizzes to the component property
       },
-      error: (err: any) => {
+      error: (err) => {
+        this.error = 'Failed to load quizzes.';
         console.error(err);
       }
     });
-
-    // Fetch the username from AuthService
-    this.username = this.authService.getUsername();
-
   }
 
   // Navigate to the questions page
   selectQuiz(quizzId: number) {
     this.router.navigate([`/quizzes/${quizzId}/questions`]);
+  }
+  // Logout method
+  logout(): void {
+    this.authService.logout();  // Clears the token
+    this.router.navigate(['/login']);  // Redirects to the login page
   }
 
 }

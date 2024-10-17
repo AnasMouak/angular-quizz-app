@@ -13,12 +13,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
-  user = {
-    username: '',
-    password: ''
-  };
-
-  message: string = '';
+  username: string = '';
+  password: string = '';
+  error: string | null = null;
 
   constructor(
     private readonly authService: AuthService,
@@ -27,25 +24,15 @@ export class LoginComponent {
 
   onSubmit(): void {
 
-    if (!this.user.username || !this.user.password) {
-      this.message = 'Username and password are required.';
-      return;  // Prevent form submission if fields are empty
-    }
-    this.authService.login(this.user).subscribe({
-      next: (response: any) => {
-        // Extract username from the response
-        const username = response.username;  // Assuming the response contains the username
-
-        // Store the username
-        this.authService.setUsername(username);
-
-        // On successful login
-        this.message = 'Login successful!';
-        this.router.navigate(['/quizzes']);  // Redirect to quizzes after successful login
+    this.authService.login(this.username, this.password).subscribe({
+      next: (response) => {
+        if (response.jwtToken) {
+          // Navigate to quizzes page after successful login
+          this.router.navigate(['/quizzes']);
+        }
       },
       error: (err) => {
-        // On failed login
-        this.message = 'Login failed. Please try again.';
+        this.error = 'Invalid credentials. Please try again.';
         console.error(err);
       }
     });
