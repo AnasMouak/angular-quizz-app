@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuizzService } from '../../services/quizz.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-quizzquestions',
@@ -18,7 +19,7 @@ export class QuizzquestionsComponent implements OnInit {
   selectedAnswers: number[] = [];
   score: number = 0;
 
-  constructor(private readonly quizzService: QuizzService, private readonly route: ActivatedRoute, private readonly router: Router) { }
+  constructor(private readonly quizzService: QuizzService, private readonly route: ActivatedRoute, private readonly router: Router, private readonly authService: AuthService) { }
 
   ngOnInit(): void {
     this.quizzId = Number(this.route.snapshot.paramMap.get('quizzId'));
@@ -58,6 +59,12 @@ export class QuizzquestionsComponent implements OnInit {
         totalQuestions: this.questions.length
       }
     });
-  }  
+  }
+  
+    // Logout method
+    logout(): void {
+      this.authService.logout();  // Clears the token
+      this.router.navigate(['/login']);  // Redirects to the login page
+    }
 
 }

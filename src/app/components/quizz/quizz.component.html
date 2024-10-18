@@ -11,24 +11,23 @@
   </nav>
 </header>
 
-<div *ngIf="quizzes.length > 0; else noQuizzes">
-  <h2>Available Quizzes</h2>
-  <ul>
-    <li *ngFor="let quiz of quizzes">
-      <h3>{{ quiz.title }}</h3>
-      <p>{{ quiz.description }}</p>
-    </li>
-  </ul>
+<div class="quiz-container">
+  <!-- Quiz list display -->
+  <div class="quiz-selection">
+    <h3 class="select-title">Select a Quiz</h3>
+    <ul class="quiz-list">
+      <li *ngFor="let quiz of quizzes" class="quiz-item">
+        <a (click)="selectQuiz(quiz.id)" class="quiz-link">
+          <span class="quiz-id">#{{ quiz.id }}</span>
+          <span class="quiz-title">{{ quiz.title }}</span>
+          <span class="quiz-category">{{ quiz.category }}</span>
+          <span class="quiz-difficulty">{{ quiz.difficulty }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<ng-template #noQuizzes>
-  <p>No quizzes available at the moment.</p>
-</ng-template>
-
-<!-- Error message -->
-<div *ngIf="error">
-  <p class="error">{{ error }}</p>
-</div>
 
 <footer>
   <p>&copy; QuizzApp. All rights reserved.</p>

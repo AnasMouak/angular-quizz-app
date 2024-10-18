@@ -64,13 +64,6 @@
   text-align: center;
 }
   
-  /* Welcome message */
-  .welcome-message {
-    font-size: 2em;
-    color: #4CAF50;
-    margin-bottom: 20px;
-  }
-  
   /* Quiz selection title */
   .select-title {
     font-size: 1.5em;
