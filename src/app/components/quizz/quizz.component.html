@@ -29,6 +29,20 @@
 </div>
 
 
+<h2>Your Taken Quizzes</h2>
+<div *ngIf="quizzesTaken.length > 0; else noQuizzes">
+  <ul>
+    <li *ngFor="let quiz of quizzesTaken">
+      <strong>{{ quiz.quizTitle }}</strong> - Score: {{ quiz.score }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #noQuizzes>
+  <p>No quizzes taken yet.</p>
+</ng-template>
+
+
 <footer>
   <p>&copy; QuizzApp. All rights reserved.</p>
 </footer>

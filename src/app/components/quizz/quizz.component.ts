@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class QuizzComponent implements OnInit {
 
   quizzes: any[] = [];
+  quizzesTaken: any[] = [];
   error: string | null = null;
 
   constructor(
@@ -24,6 +25,7 @@ export class QuizzComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadQuizzes();
+    this.loadQuizzesTaken();
   }
 
   loadQuizzes(): void {
@@ -33,6 +35,18 @@ export class QuizzComponent implements OnInit {
       },
       error: (err) => {
         this.error = 'Failed to load quizzes.';
+        console.error(err);
+      }
+    });
+  }
+
+  loadQuizzesTaken(): void {
+    this.quizzService.getQuizzesTaken().subscribe({
+      next: (data) => {
+        this.quizzesTaken = data; // Assign fetched quizzesTaken to the component property
+      },
+      error: (err) => {
+        this.error = 'Failed to load quizzesTaken.';
         console.error(err);
       }
     });

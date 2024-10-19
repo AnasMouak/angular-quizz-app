@@ -24,6 +24,18 @@ export class QuizzService {
     return this.http.get<any[]>(this.quizzesUrl, { headers });
   }
 
+  getQuizzesTaken(): Observable<any[]> {
+
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` 
+    });
+
+    // Make the HTTP request to the backend to get the quizzes taken by the user
+    return this.http.get<any[]>(`${this.quizzesUrl}/taken`, { headers });
+  }
+
   getQuizQuestions(quizzId: number): Observable<any[]> {
 
     const token = this.authService.getToken();
