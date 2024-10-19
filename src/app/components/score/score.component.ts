@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-score',
@@ -14,7 +15,7 @@ export class ScoreComponent implements OnInit {
   score: number = 0;
   totalQuestions: number = 0;
 
-  constructor(private readonly route: ActivatedRoute) { }
+  constructor(private readonly route: ActivatedRoute, private readonly router: Router, private readonly authService: AuthService) { }
 
   ngOnInit(): void {
     // Retrieve score and totalQuestions from route parameters
@@ -22,6 +23,12 @@ export class ScoreComponent implements OnInit {
       this.score = Number(params['score']);
       this.totalQuestions = Number(params['totalQuestions']);
     });
+  }
+
+  // Logout method
+  logout(): void {
+    this.authService.logout();  // Clears the token
+    this.router.navigate(['/login']);  // Redirects to the login page
   }
 
 }
