@@ -35,4 +35,16 @@ export class QuizzService {
     // Make the HTTP request to the backend to get the questions for the selected quiz
     return this.http.get<any[]>(`${this.quizzesUrl}/${quizzId}/questions`, { headers });
   }
+
+  submitQuiz(quizzId: number, selectedAnswers: number[]): Observable<any> {
+
+    const token = this.authService.getToken();
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` 
+    });
+
+    // Make the HTTP request to the backend to submit the quiz
+    return this.http.post<any>(`${this.quizzesUrl}/${quizzId}/submit`, selectedAnswers, { headers });
+  }
 }

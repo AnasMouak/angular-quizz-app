@@ -17,7 +17,6 @@ export class QuizzquestionsComponent implements OnInit {
   questions: any[] = [];
   quizzId: number | undefined;
   selectedAnswers: number[] = [];
-  score: number = 0;
 
   constructor(private readonly quizzService: QuizzService, private readonly route: ActivatedRoute, private readonly router: Router, private readonly authService: AuthService) { }
 
@@ -37,28 +36,25 @@ export class QuizzquestionsComponent implements OnInit {
     }
   }
 
-  // Submit the quiz and calculate the score
+  // Submit the quiz and send selected answers to the backend
   submitQuiz(): void {
-    this.score = 0;
-    
-    // Loop over questions and check if the selected answer is correct
-    this.questions.forEach((question, index) => {
-      const selectedAnswerId = this.selectedAnswers[index];
-      const correctAnswer = question.answers.find((answer: any) => answer.isCorrect);
-
-      // Compare selected answer with the correct answer
-      if (correctAnswer && correctAnswer.id === selectedAnswerId) {
-        this.score++;
-      }
-    });
-
-    // Navigate to the score page
-    this.router.navigate(['/score'], {
-      queryParams: {
-        score: this.score,
-        totalQuestions: this.questions.length
-      }
-    });
+    // Ensure that the selectedAnswers array is sent to the backend
+    if (this.quizzId) {
+      this.quizzService.submitQuiz(this.quizzId, this.selectedAnswers).subscribe({
+        next: (response: any) => {
+          // Navigate to the score page with the received score
+          this.router.navigate(['/score'], {
+            queryParams: {
+              score: response.score,  // Assuming the backend returns the score
+              totalQuestions: this.questions.length
+            }
+          });
+        },
+        error: (err: any) => {
+          console.error('Error submitting quiz:', err);
+        }
+      });
+    }
   }
   
     // Logout method

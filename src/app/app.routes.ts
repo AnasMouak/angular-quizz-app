@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'quizzes', component: QuizzComponent , canActivate: [authGuard] },
-    { path: 'quizzes/:quizzId/questions', component: QuizzquestionsComponent },
+    { path: 'quizzes/:quizzId/questions', component: QuizzquestionsComponent, canActivate: [authGuard] },
     { path: 'score', component: ScoreComponent },
     { path: '**', redirectTo: 'login' }  // Redirect any unknown routes to login
   ];
